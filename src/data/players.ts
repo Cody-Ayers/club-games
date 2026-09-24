@@ -35,4 +35,13 @@ export const players = [
         homeClub: "Flying Horse",
     },
 
+    {
+        id: 5,
+        name: "David Lee",
+        ghin: "3333333",
+        handicapIndex: 9.7,
+        preferredTee: "Blue",
+        homeClub: "Broadmoor",
+    }
+
 ];
