@@ -1,3 +1,5 @@
+import { rounds } from "@/data/rounds";
+
 export default function RoundsPage() {
   return (
     <main className="min-h-screen bg-zinc-950 text-white p-8">
@@ -17,35 +19,21 @@ export default function RoundsPage() {
             <div>Status</div>
           </div>
 
-          <div className="grid grid-cols-5 gap-4 py-2">
-            <div>Wednesday Woods</div>
-            <div>CSCC</div>
-            <div>20 Players</div>
-            <div>$1200</div>
-            <div>Active</div>
-          </div>
+          {rounds.map((round) => (
+            <div className="grid grid-cols-5 gap-4 py-2" key={round.id}>
+              <div>{round.name}</div>
+              <div>{round.course}</div>
+              <div>{round.players} Players</div>
+              <div>${round.pot}</div>
+              <div>{round.status}</div>
+            </div>
+          ))}
 
-          <div className="grid grid-cols-5  gap-4 py-2">
-            <div>Firday Flights</div>
-            <div>CSCC</div>
-            <div>12 Players</div>
-            <div>$720</div>
-            <div>Upcoming</div>
+          <div className="mt-6">
+            <button className="bg-emerald-600 hover:bg-emerald-500 px-4 py-2 rounded-xl font-semibold">
+              Create Round
+            </button>
           </div>
-
-          <div className="grid grid-cols-5 gap-4 py-2">
-            <div>Saturday Singles</div>
-            <div>CSCC</div>
-            <div>14 Players</div>
-            <div>$840</div>
-            <div>Completed</div>
-          </div>
-        </div>
-
-        <div className="mt-6">
-          <button className="bg-emerald-600 hover:bg-emerald-500 px-4 py-2 rounded-xl font-semibold">
-            Create Round
-          </button>
         </div>
       </div>
     </main>
