@@ -1,3 +1,5 @@
+import { templates } from "@/data/templates";
+
 export default function TemplatesPage() {
   return (
     <main className="min-h-screen bg-zinc-950 text-white p-8">
@@ -15,23 +17,13 @@ export default function TemplatesPage() {
             <div>Buy In</div>
           </div>
 
-          <div className="grid grid-cols-4 gap-4 py-2">
-            <div>Wednesday Woods</div>
-            <div>20 Players</div>
-            <div>$60</div>
-          </div>
-
-          <div className="grid grid-cols-4 gap- py-2">
-            <div>Firday Flights</div>
-            <div>12 Players</div>
-            <div>$60</div>
-          </div>
-
-          <div className="grid grid-cols-4 gap-4 py-2">
-            <div>Saturday Singles</div>
-            <div>14 Players</div>
-            <div>$60</div>
-          </div>
+          {templates.map((template) => (
+            <div className="grid grid-cols-4 gap-4 py-2" key={template.id}>
+              <div>{template.name}</div>
+              <div>{template.players}</div>
+              <div>${template.buyIn}</div>
+            </div>
+          ))}
 
           <div className="mt-6">
             <button className="bg-emerald-600 hover:bg-emerald-500 px-4 py-2 rounded-xl font-semibold">
