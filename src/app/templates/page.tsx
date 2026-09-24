@@ -21,7 +21,7 @@ export default function TemplatesPage() {
             <div>$60</div>
           </div>
 
-          <div className="grid grid-cols-4 gap-4 py-2">
+          <div className="grid grid-cols-4 gap- py-2">
             <div>Firday Flights</div>
             <div>12 Players</div>
             <div>$60</div>
