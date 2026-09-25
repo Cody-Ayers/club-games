@@ -24,3 +24,16 @@ export function calculatePayout(
         payout: amountPerWinner
     }));
 }
+
+export function calculateWinnerTakeAll(
+    potAmount: number,
+    winnerNames: string
+) {
+    return [
+        {
+            name: winnerNames,
+            payout: potAmount
+        }
+    ];
+}
+
