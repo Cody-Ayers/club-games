@@ -1,4 +1,5 @@
 import { rounds } from "@/data/rounds";
+import { groups } from "@/data/groups";
 
 export default function RoundsPage() {
   return (
@@ -14,20 +15,23 @@ export default function RoundsPage() {
           <div className="grid grid-cols-5 gap-4 border-b border-zinc-700 pb-3 mb-3 font-semibold">
             <div>Round Name</div>
             <div>Course</div>
-            <div>Players</div>
+            <div>Groups</div>
             <div>Pot</div>
             <div>Status</div>
           </div>
 
-          {rounds.map((round) => (
-            <div className="grid grid-cols-5 gap-4 py-2" key={round.id}>
-              <div>{round.name}</div>
-              <div>{round.course}</div>
-              <div>{round.players} Players</div>
-              <div>${round.pot}</div>
-              <div>{round.status}</div>
-            </div>
-          ))}
+          {rounds.map((round) => {
+            const group = groups.find((g) => g.id === round.groupId);
+            return (
+              <div className="grid grid-cols-5 gap-4 py-2" key={round.id}>
+                <div>{round.name}</div>
+                <div>{round.course}</div>
+                <div>{group ? group.name : "Unknown Group"}</div>
+                <div>${round.pot}</div>
+                <div>{round.status}</div>
+              </div>
+            );
+          })}
 
           <div className="mt-6">
             <button className="bg-emerald-600 hover:bg-emerald-500 px-4 py-2 rounded-xl font-semibold">

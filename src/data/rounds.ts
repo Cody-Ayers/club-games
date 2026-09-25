@@ -2,8 +2,9 @@ export const rounds = [
     {
         id: 1,
         name: "Wednesday Woods",
+        groupId: 1,
+        templateId: 1,
         course: "Colorado Springs CC",
-        players: 20,
         pot: 1200,
         status: "Active",
     },
@@ -11,8 +12,9 @@ export const rounds = [
     {
         id: 2,
         name: "Friday Flights",
+        groupId: 2,
+        templateId: 4,
         course: "Colorado Springs CC",
-        players: 12,
         pot: 720,
         status: "Upcoming",
     },
@@ -20,8 +22,9 @@ export const rounds = [
     {
         id: 3,
         name: "Saturday Singles",
+        groupId: 3,
+        templateId: 2,
         course: "Colorado Springs CC",
-        players: 14,
         pot: 840,
         status: "Completed",
     },
@@ -29,9 +32,11 @@ export const rounds = [
     {
         id: 4,
         name: "Sunday Scramble",
+        groupId: 4,
+        templateId: 3,
         course: "Broadmoor",
-        players: 40,
-        pot: 10000,
-        status: "Upcoming",
+        pot: 1500,
+        status: "Active",
     },
+
 ];
