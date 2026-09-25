@@ -2,28 +2,28 @@ export const groups = [
     {
         id: 1,
         name: "Wednesday Money Game",
-        playerCount: 20,
+        playerIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
         buyIn: 60,
     },
 
     {
         id: 2,
         name: "Friday Money Game",
-        playerCount: 12,
+        playerIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
         buyIn: 60,
     },
 
     {
         id: 3,
         name: "Saturday Money Game",
-        playerCount: 14,
+        playerIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
         buyIn: 60,
     },
 
     {
         id: 4,
         name: "Member Guest",
-        playerCount: 16,
-        buyIn: 60,
+        playerIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50],
+        buyIn: 100,
     },
 ];

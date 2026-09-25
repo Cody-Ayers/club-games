@@ -20,7 +20,7 @@ export default function GroupsPage() {
           {groups.map((group) => (
             <div className="grid grid-cols-4 gap-4 py-2" key={group.id}>
               <div>{group.name}</div>
-              <div>{group.playerCount}</div>
+              <div>{group.playerIds.length} Players</div>
               <div>${group.buyIn}</div>
             </div>
           ))}
