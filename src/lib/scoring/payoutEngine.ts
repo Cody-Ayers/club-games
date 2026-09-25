@@ -37,3 +37,16 @@ export function calculateWinnerTakeAll(
     ];
 }
 
+export function calculatePercentagePayout(
+    potAmount: number,
+    winners: {
+        name: string;
+        percentage: number;
+    }[]
+) {
+    return winners.map((winner) => ({
+        name: winner.name,
+        payout: (potAmount * winner.percentage) / 100,
+    }));
+}
+
