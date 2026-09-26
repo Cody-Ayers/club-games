@@ -10,43 +10,151 @@ export default function TestRoundSummaryPage() {
           {summary.roundName}
         </h1>
 
-        <div className="bg-zinc-900 rounded-2xl p-6 mb-6">
-          <div>Total Pot: ${summary.totalPot}</div>
-          <div>Total Paid: ${summary.totalPaid}</div>
-          <div>Bar Tip: ${summary.barTip}</div>
+        {/* Round Summary */}
+        <div
+          className="
+                        bg-zinc-900
+                        rounded-2xl
+                        p-6
+                        mb-6
+                        transition-all
+                        hover:bg-zinc-800
+                    "
+        >
+          <div className="flex justify-between py-1">
+            <span>Total Pot</span>
+            <span className="text-emerald-400 font-semibold">
+              ${summary.totalPot}
+            </span>
+          </div>
+
+          <div className="flex justify-between py-1">
+            <span>Total Paid</span>
+            <span className="text-emerald-400 font-semibold">
+              ${summary.totalPaid}
+            </span>
+          </div>
+
+          <div className="flex justify-between py-1">
+            <span>Bar Tip</span>
+            <span className="text-amber-400 font-semibold">
+              ${summary.barTip}
+            </span>
+          </div>
         </div>
 
-        <div className="bg-zinc-900 rounded-2xl p-6 mb-6">
-          <h2 className="text-2xl font-semibold mb-4">First Six</h2>
+        {/* First Six */}
+        <div
+          className="
+                        bg-zinc-900
+                        rounded-2xl
+                        p-6
+                        mb-6
+                        transition-all
+                        hover:bg-zinc-800
+                    "
+        >
+          <h2 className="text-2xl font-bold text-emerald-400 mb-4">
+            First Six
+          </h2>
 
           {summary.firstSix.map((winner) => (
-            <div key={winner.name} className="flex justify-between py-1">
+            <div
+              key={winner.name}
+              className="
+                                flex
+                                justify-between
+                                items-center
+                                py-2
+                                border-b
+                                border-zinc-800
+                                last:border-0
+                            "
+            >
               <span>{winner.name}</span>
-              <span>${winner.payout}</span>
+
+              <span className="text-emerald-400 font-semibold">
+                ${winner.payout}
+              </span>
             </div>
           ))}
         </div>
 
-        <div className="bg-zinc-900 rounded-2xl p-6 mb-6">
-          <h2 className="text-2xl font-semibold mb-4">Gross Skins</h2>
+        {/* Gross Skins */}
+        <div
+          className="
+                        bg-zinc-900
+                        rounded-2xl
+                        p-6
+                        mb-6
+                        transition-all
+                        hover:bg-zinc-800
+                    "
+        >
+          <h2 className="text-2xl font-bold text-emerald-400 mb-4">
+            Gross Skins
+          </h2>
 
           {summary.grossSkins.map((winner) => (
-            <div key={winner.name} className="flex justify-between py-1">
+            <div
+              key={winner.name}
+              className="
+                                flex
+                                justify-between
+                                items-center
+                                py-2
+                                border-b
+                                border-zinc-800
+                                last:border-0
+                            "
+            >
               <span>{winner.name}</span>
-              <span>${winner.payout}</span>
+
+              <span className="text-emerald-400 font-semibold">
+                ${winner.payout}
+              </span>
             </div>
           ))}
         </div>
 
-        <div className="bg-zinc-900 rounded-2xl p-6">
-          <h2 className="text-2xl font-semibold mb-4">Deuces</h2>
+        {/* Deuces */}
+        <div
+          className="
+                        bg-zinc-900
+                        rounded-2xl
+                        p-6
+                        mb-6
+                        transition-all
+                        hover:bg-zinc-800
+                    "
+        >
+          <h2 className="text-2xl font-bold text-emerald-400 mb-4">Deuces</h2>
 
           {summary.deuces.map((winner) => (
-            <div key={winner.name} className="flex justify-between py-1">
+            <div
+              key={winner.name}
+              className="
+                                flex
+                                justify-between
+                                items-center
+                                py-2
+                                border-b
+                                border-zinc-800
+                                last:border-0
+                            "
+            >
               <span>{winner.name}</span>
-              <span>${winner.payout}</span>
+
+              <span className="text-emerald-400 font-semibold">
+                ${winner.payout}
+              </span>
             </div>
           ))}
+        </div>
+
+        {/* Footer */}
+        <div className="text-center mt-8 text-zinc-500 text-sm">
+          Generated by Club Games
         </div>
       </div>
     </main>
