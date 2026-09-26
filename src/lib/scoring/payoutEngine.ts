@@ -1,3 +1,8 @@
+// ======================================================
+// Shared Helper Functions
+// ======================================================
+
+// Split a pot evenly between winners
 export function splitPotEvenly(
     potAmount: number,
     winnerCount: number
@@ -9,34 +14,42 @@ export function splitPotEvenly(
     return potAmount / winnerCount;
 }
 
+// Distribute a pot equally among all winners
 export function calculatePayout(
     potAmount: number,
-    winnerNames: string[]
+    winners: string[]
 ) {
     const amountPerWinner =
         splitPotEvenly(
             potAmount,
-            winnerNames.length
+            winners.length
         );
 
-    return winnerNames.map((winner) => ({
+    return winners.map((winner) => ({
         name: winner,
-        payout: amountPerWinner
+        payout: amountPerWinner,
     }));
 }
 
+
+// ======================================================
+// Payout Rules
+// ======================================================
+
+// Winner receives the entire pot
 export function calculateWinnerTakeAll(
     potAmount: number,
-    winnerNames: string
+    winnerName: string
 ) {
     return [
         {
-            name: winnerNames,
-            payout: potAmount
-        }
+            name: winnerName,
+            payout: potAmount,
+        },
     ];
 }
 
+// Distribute a pot based on payout percentages
 export function calculatePercentagePayout(
     potAmount: number,
     winners: {
@@ -46,7 +59,18 @@ export function calculatePercentagePayout(
 ) {
     return winners.map((winner) => ({
         name: winner.name,
-        payout: (potAmount * winner.percentage) / 100,
+        payout:
+            (potAmount * winner.percentage) / 100,
     }));
 }
 
+// Handle tied results by splitting the pot evenly
+export function calculateTieSplit(
+    potAmount: number,
+    winners: string[]
+) {
+    return calculatePayout(
+        potAmount,
+        winners
+    );
+}
