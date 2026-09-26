@@ -107,4 +107,15 @@ export function calculateSkinsPayout(
         potAmount,
         winners
     );
-}   
+}
+
+// Distribute deuces pot evenly among deuce winners
+export function calculateDeucesPayout(
+    potAmount: number,
+    winners: string[]
+) {
+    return calculatePayout(
+        potAmount,
+        winners
+    );
+}
