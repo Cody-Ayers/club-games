@@ -14,6 +14,28 @@ export function splitPotEvenly(
     return potAmount / winnerCount;
 }
 
+// Round payout amounts to the nearest whole dollar
+// Any remaining dollars are typically used for the bar tip
+export function roundPayout(
+    payout: number
+) {
+    return Math.round(payout);
+}
+
+// Calculate dollars remaining after payouts
+export function calculateRemainder(
+    potAmount: number,
+    payouts: number[]
+) {
+    const totalPaid =
+        payouts.reduce(
+            (total, payout) => total + payout,
+            0
+        );
+
+    return potAmount - totalPaid;
+}
+
 // Distribute a pot equally among all winners
 export function calculatePayout(
     potAmount: number,
@@ -27,9 +49,10 @@ export function calculatePayout(
 
     return winners.map((winner) => ({
         name: winner,
-        payout: amountPerWinner,
+        payout: roundPayout(amountPerWinner),
     }));
 }
+
 
 
 // ======================================================
@@ -60,7 +83,7 @@ export function calculatePercentagePayout(
     return winners.map((winner) => ({
         name: winner.name,
         payout:
-            (potAmount * winner.percentage) / 100,
+            roundPayout((potAmount * winner.percentage) / 100),
     }));
 }
 
