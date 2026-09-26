@@ -1,6 +1,7 @@
 import {
   calculatePercentagePayout,
   calculateWinnerTakeAll,
+  calculateSkinsPayout,
 } from "@/lib/scoring/payoutEngine";
 
 export default function TestPayoutsPage() {
@@ -15,6 +16,7 @@ export default function TestPayoutsPage() {
       percentage: 40,
     },
   ]);
+  const skinsPayout = calculateSkinsPayout(160, ["Jim", "Mike", "Bob"]);
 
   return (
     <main className="min-h-screen bg-zinc-950 text-white p-8">
@@ -24,6 +26,7 @@ export default function TestPayoutsPage() {
         </h1>
          <pre>{JSON.stringify(payout, null, 2)}</pre> 
         <pre>{JSON.stringify(percentagePayout, null, 2)}</pre>
+        <pre>{JSON.stringify(skinsPayout, null, 2)}</pre>
       </div>
     </main>
   );

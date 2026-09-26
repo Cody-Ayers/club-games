@@ -74,3 +74,14 @@ export function calculateTieSplit(
         winners
     );
 }
+
+// Distribute skins pot evenly among skin winners
+export function calculateSkinsPayout(
+    potAmount: number,
+    winners: string[]
+) {
+    return calculatePayout(
+        potAmount,
+        winners
+    );
+}   
