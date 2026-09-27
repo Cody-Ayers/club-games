@@ -1,7 +1,7 @@
 import { buildRoundPayoutSummary } from "@/lib/scoring/roundPayoutSummary";
 
 export default function TestRoundSummaryPage() {
-  const summary = buildRoundPayoutSummary();
+  const summary = buildRoundPayoutSummary(2);
 
   return (
     <main className="min-h-screen bg-zinc-950 text-white p-8">

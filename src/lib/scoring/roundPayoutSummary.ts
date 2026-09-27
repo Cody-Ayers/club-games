@@ -1,12 +1,34 @@
-export function buildRoundPayoutSummary() {
+import { rounds } from "@/data/rounds";
+import { templates } from "@/data/templates";
+
+export function buildRoundPayoutSummary(
+    roundId: number
+) {
+    const round = rounds.find(
+        (round) => round.id === roundId
+    );
+
+    if (!round) {
+        throw new Error("Round not found");
+    }
+    const template = templates.find(
+        (template) =>
+            template.id === round.templateId
+    );
+
+    if (!template) {
+        throw new Error("Template not found");
+    }
+
     return {
-        roundName: "Friday Flights",
+        roundName: round.name,
+        course: round.course,
+        totalPot: round.pot,
+        templateName: template.name,
+        buyIn: template.buyIn,
 
-        totalPot: 480,
-
-        totalPaid: 468,
-
-        barTip: 12,
+        totalPaid: 470,
+        barTip: 10,
 
         firstSix: [
             {
@@ -17,28 +39,28 @@ export function buildRoundPayoutSummary() {
 
         grossSkins: [
             {
-                name: "Jeff",
-                payout: 69,
+                name: "Cody",
+                payout: 50,
             },
             {
-                name: "Mike",
-                payout: 39,
+                name: "Jeff",
+                payout: 50,
             },
             {
                 name: "Bob",
-                payout: 40,
+                payout: 50,
             },
         ],
 
         deuces: [
             {
-                name: "Dennis",
+                name: "Cody",
                 payout: 120,
             },
             {
-                name: "Cody",
+                name: "Jack",
                 payout: 40,
             },
         ],
-    }
+    };
 }
