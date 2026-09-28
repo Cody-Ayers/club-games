@@ -33,7 +33,27 @@ export function buildRoundPayoutSummary(
         firstSix: [
             {
                 name: "Team Randy",
+
                 payout: 160,
+
+                players: [
+                    {
+                        name: "Randy",
+                        payout: 40,
+                    },
+                    {
+                        name: "Cody",
+                        payout: 40,
+                    },
+                    {
+                        name: "Jeff",
+                        payout: 40,
+                    },
+                    {
+                        name: "Jack",
+                        payout: 40,
+                    },
+                ],
             },
         ],
 
@@ -60,6 +80,25 @@ export function buildRoundPayoutSummary(
             {
                 name: "Jack",
                 payout: 40,
+            },
+        ],
+
+        playerResults: [
+            {
+                name: "Cody",
+                winnings: 210,
+            },
+            {
+                name: "Jeff",
+                winnings: 90,
+            },
+            {
+                name: "Jack",
+                winnings: 80,
+            },
+            {
+                name: "Randy",
+                winnings: 40,
             },
         ],
     };

@@ -61,21 +61,24 @@ export default function TestRoundSummaryPage() {
           {summary.firstSix.map((winner) => (
             <div
               key={winner.name}
-              className="
-                                flex
-                                justify-between
-                                items-center
-                                py-2
-                                border-b
-                                border-zinc-800
-                                last:border-0
-                            "
+              className="border-b border-zinc-800 pb-4 mb-4 last:border-0 last:mb-0"
             >
-              <span>{winner.name}</span>
-
-              <span className="text-emerald-400 font-semibold">
-                ${winner.payout}
-              </span>
+              <div className="flex justify-between items-center py-2">
+                <span className="font-semibold text-lg">{winner.name}</span> 
+                <span className="text-emerald-400 font-bold">
+                  ${winner.payout}
+                </span>
+              </div>
+               
+              {winner.players?.map((player) => (
+                <div
+                  key={player.name}
+                  className="flex justify-between pl-6 py-1"
+                >
+                  <span className="text-zinc-300">{player.name}</span> 
+                  <span className="text-emerald-400">${player.payout}</span>
+                </div>
+              ))}
             </div>
           ))}
         </div>
@@ -147,6 +150,43 @@ export default function TestRoundSummaryPage() {
 
               <span className="text-emerald-400 font-semibold">
                 ${winner.payout}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        {/* Player Results */}
+        <div
+          className="
+        bg-zinc-900
+        rounded-2xl
+        p-6
+        mb-6
+        transition-all
+        hover:bg-zinc-800
+    "
+        >
+          <h2 className="text-2xl font-bold text-emerald-400 mb-4">
+            Player Results
+          </h2>
+
+          {summary.playerResults.map((player) => (
+            <div
+              key={player.name}
+              className="
+                flex
+                justify-between
+                items-center
+                py-2
+                border-b
+                border-zinc-800
+                last:border-0
+            "
+            >
+              <span>{player.name}</span>
+
+              <span className="text-emerald-400 font-semibold">
+                ${player.winnings}
               </span>
             </div>
           ))}
