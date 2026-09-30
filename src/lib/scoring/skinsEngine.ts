@@ -50,3 +50,28 @@ export function calculateSkinCounts(
             (a, b) => b.skins - a.skins
         );
 }
+
+// Calculate skin payouts
+export function calculateSkinPayouts(
+    skinResults: {
+        playerName: string;
+        skins: number;
+    }[],
+    skinPot: number
+) {
+    const totalSkins = skinResults.reduce(
+        (total, player) => total + player.skins,
+        0
+    );
+
+    const skinValue =
+        totalSkins > 0
+            ? skinPot / totalSkins
+            : 0;
+
+    return skinResults.map((player) => ({
+        playerName: player.playerName,
+        skins: player.skins,
+        payout: player.skins * skinValue,
+    }));
+}

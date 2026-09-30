@@ -1,5 +1,6 @@
 import { calculateHoleWinner } from "@/lib/scoring/skinsEngine";
 import { calculateSkinCounts } from "@/lib/scoring/skinsEngine";
+import { calculateSkinPayouts } from "@/lib/scoring/skinsEngine";
 
 export default function TestSkinsPage() {
   const winner = calculateHoleWinner([
@@ -28,6 +29,8 @@ export default function TestSkinsPage() {
     "Cody",
     "Randy",
   ]);
+
+  const skinPayouts = calculateSkinPayouts(skinResults, 100);
 
   const skinChampion = skinResults[0];
 
@@ -76,6 +79,33 @@ export default function TestSkinsPage() {
               </span>
             </div>
           ))}
+
+          <div className="bg-zinc-900 rounded-2xl p-6 mt-6">
+            <h2 className="text-2xl font-bold text-emerald-400 mb-4">
+              Skin Payouts
+            </h2>
+
+            {skinPayouts.map((player) => (
+              <div
+                key={player.playerName}
+                className="
+                flex
+                justify-between
+                items-center
+                py-2
+                border-b
+                border-zinc-800
+                last:border-0
+            "
+              >
+                <span>{player.playerName}</span>
+
+                <span className="text-emerald-400 font-semibold">
+                  ${player.payout.toFixed(2)}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </main>
