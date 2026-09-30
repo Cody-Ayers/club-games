@@ -21,3 +21,32 @@ export function calculateHoleWinner(
 
     return lowestScore.playerName;
 }
+// Count skins won by each player
+export function calculateSkinCounts(
+    holeWinners: (string | null)[]
+) {
+    const skinCounts: Record<
+        string,
+        number
+    > = {};
+
+    holeWinners.forEach((winner) => {
+        if (!winner) {
+            return;
+        }
+
+        skinCounts[winner] =
+            (skinCounts[winner] || 0) + 1;
+    });
+
+    return Object.entries(
+        skinCounts
+    )
+        .map(([playerName, skins]) => ({
+            playerName,
+            skins,
+        }))
+        .sort(
+            (a, b) => b.skins - a.skins
+        );
+}
