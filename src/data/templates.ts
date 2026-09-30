@@ -3,7 +3,7 @@ export const templates = [
         id: 1,
         name: "4 Man 6/6/6",
 
-        players: 20,
+        players: 14,
         buyIn: 60,
 
         potAllocation: {
