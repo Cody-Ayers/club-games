@@ -20,10 +20,22 @@ export default function TestNetScoresPage() {
     })
     .sort((a, b) => a.netScore - b.netScore);
 
+  const winner = netScores[0];
+
   return (
     <main className="min-h-screen bg-zinc-950 text-white p-8">
       <div className="max-w-5xl mx-auto">
         <h1 className="text-4xl font-bold text-emerald-400 mb-6">Net Scores</h1>
+
+        <div className="bg-zinc-900 rounded-2xl p-6 mb-6">
+          <h2 className="text-2xl font-bold text-emerald-400 mb-4">
+            Net Champion
+          </h2>
+
+          <div className="text-xl font-semibold">{winner.playerName}</div>
+
+          <div className="text-zinc-400">Net Score: {winner.netScore}</div>
+        </div>
 
         <div className="bg-zinc-900 rounded-2xl p-6">
           {netScores.map((player, index) => (
