@@ -1,16 +1,17 @@
 import { calculateHoleWinner } from "@/lib/scoring/skinsEngine";
 import { calculateSkinCounts } from "@/lib/scoring/skinsEngine";
 import { calculateSkinPayouts } from "@/lib/scoring/skinsEngine";
+import { templates } from "@/data/templates";
 
 export default function TestSkinsPage() {
   const winner = calculateHoleWinner([
     {
       playerName: "Cody",
-      score: 4,
+      score: 3,
     },
     {
       playerName: "Jack",
-      score: 3,
+      score: 4,
     },
     {
       playerName: "Jeff",
@@ -30,7 +31,17 @@ export default function TestSkinsPage() {
     "Randy",
   ]);
 
-  const skinPayouts = calculateSkinPayouts(skinResults, 100);
+  const template = templates.find((template) => template.id === 1);
+
+  if (!template) {
+    return <div>Template not found</div>;
+  }
+
+  const totalPot = template.players * template.buyIn;
+
+  const skinsPot = totalPot * (template.potAllocation.grossSkins / 100);
+
+  const skinPayouts = calculateSkinPayouts(skinResults, skinsPot);
 
   const skinChampion = skinResults[0];
 
