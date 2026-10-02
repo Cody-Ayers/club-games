@@ -12,8 +12,8 @@ export const templates = [
             thirdSix: 10,
             grossSkins: 10,
             netSkins: 10,
-            deuces: 5,
-            netDeuces: 5,
+            deuces: 10,
+            netDeuces: 0,
         }
     },
 

@@ -54,9 +54,10 @@ export default function TestSkinsPage() {
           <h2 className="text-2xl font-bold text-emerald-400 mb-4">
             Skin Champion
           </h2>
-           
+
           <div className="text-xl font-semibold">{skinChampion.playerName}</div>
-           <div className="text-zinc-400">Skins Won: {skinChampion.skins}</div>
+
+          <div className="text-zinc-400">Skins Won: {skinChampion.skins}</div>
         </div>
 
         <div className="bg-zinc-900 rounded-2xl p-6 mb-6">
@@ -90,33 +91,45 @@ export default function TestSkinsPage() {
               </span>
             </div>
           ))}
+        </div>
 
-          <div className="bg-zinc-900 rounded-2xl p-6 mt-6">
-            <h2 className="text-2xl font-bold text-emerald-400 mb-4">
-              Skin Payouts
-            </h2>
+        <div className="bg-zinc-900 rounded-2xl p-6 mt-6">
+          <h2 className="text-2xl font-bold text-emerald-400 mb-4">Skin Pot</h2>
 
-            {skinPayouts.map((player) => (
-              <div
-                key={player.playerName}
-                className="
-                flex
-                justify-between
-                items-center
-                py-2
-                border-b
-                border-zinc-800
-                last:border-0
-            "
-              >
-                <span>{player.playerName}</span>
+          <div>Total Pot: ${totalPot.toFixed(2)}</div>
 
-                <span className="text-emerald-400 font-semibold">
-                  ${player.payout.toFixed(2)}
-                </span>
-              </div>
-            ))}
+          <div>Template Allocation: {template.potAllocation.grossSkins}%</div>
+
+          <div className="text-xl font-semibold text-emerald-400 mt-2">
+            Skin Pot: ${skinsPot.toFixed(2)}
           </div>
+        </div>
+
+        <div className="bg-zinc-900 rounded-2xl p-6 mt-6">
+          <h2 className="text-2xl font-bold text-emerald-400 mb-4">
+            Skin Payouts
+          </h2>
+
+          {skinPayouts.map((player) => (
+            <div
+              key={player.playerName}
+              className="
+              flex
+              justify-between
+              items-center
+              py-2
+              border-b
+              border-zinc-800
+              last:border-0
+            "
+            >
+              <span>{player.playerName}</span>
+
+              <span className="text-emerald-400 font-semibold">
+                ${player.payout.toFixed(2)}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
     </main>

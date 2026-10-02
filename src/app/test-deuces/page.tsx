@@ -4,14 +4,26 @@ import {
   calculateDeucePayouts,
 } from "@/lib/scoring/deucesEngine";
 
+import { templates } from "@/data/templates";
+
 export default function TestDeucesPage() {
   const deuce = isDeuce(2, 3);
 
   const deuceResults = calculateDeuceCounts(["Cody", "Jack", "Cody", "Randy"]);
 
+  const template = templates.find((template) => template.id === 1);
+
+  if (!template) {
+    return <div>Template not found</div>;
+  }
+
+  const totalPot = template.players * template.buyIn;
+
+  const deucePot = totalPot * (template.potAllocation.deuces / 100);
+
   const deuceChampion = deuceResults[0];
 
-  const deucePayouts = calculateDeucePayouts(deuceResults, 100);
+  const deucePayouts = calculateDeucePayouts(deuceResults, deucePot);
 
   return (
     <main className="min-h-screen bg-zinc-950 text-white p-8">
@@ -61,6 +73,20 @@ export default function TestDeucesPage() {
               </span>
             </div>
           ))}
+        </div>
+
+        <div className="bg-zinc-900 rounded-2xl p-6 mt-6">
+          <h2 className="text-2xl font-bold text-emerald-400 mb-4">
+            Deuce Pot
+          </h2>
+
+          <div>Total Pot: ${totalPot.toFixed(2)}</div>
+
+          <div>Template Allocation: {template.potAllocation.deuces}%</div>
+
+          <div className="text-xl font-semibold text-emerald-400 mt-2">
+            Deuce Pot: ${deucePot.toFixed(2)}
+          </div>
         </div>
 
         <div className="bg-zinc-900 rounded-2xl p-6 mt-6">
